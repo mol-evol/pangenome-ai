@@ -10,8 +10,8 @@
     <h1 class="hero-title">Pangenome AI is revolutionising bioscience by harnessing the power of artificial intelligence to unlock insights hidden in the global pangenome.</h1>
     <p class="hero-sub">From decades of trial-and-error to days of precision. From random mutations to AI-guided evolution. From research to real-world application, we&rsquo;re redefining what&rsquo;s possible in biological science.</p>
     <p class="hero-cta">
-      <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a>
-      <a class="btn btn-ghost" href="{{ "/about/" | strings.TrimPrefix "/"  | relURL }}">About us</a>
+      <a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Speak to us</a>
+      <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">About us</a>
     </p>
   </div>
 </section>
@@ -29,13 +29,13 @@
       <p class="eyebrow">For research</p>
       <h2>Advancing discovery in intelligent genomics</h2>
       <p>Explore how AI can power your research and redefine your scientific potential.</p>
-      <p><a class="link-arrow" href="{{ "/for-research/" | strings.TrimPrefix "/"  | relURL }}">Explore research <span aria-hidden="true">&rarr;</span></a></p>
+      <p><a class="link-arrow" href="{{ "/for-research/" | relURL }}">Explore research <span aria-hidden="true">&rarr;</span></a></p>
     </article>
     <article class="split-card">
       <p class="eyebrow">For investors</p>
       <h2>A frontier in AI-driven bioscience</h2>
       <p>See how we&rsquo;re building the platform set to lead the next wave of biotech innovation.</p>
-      <p><a class="link-arrow" href="{{ "/for-investors/" | strings.TrimPrefix "/"  | relURL }}">Explore investment <span aria-hidden="true">&rarr;</span></a></p>
+      <p><a class="link-arrow" href="{{ "/for-investors/" | relURL }}">Explore investment <span aria-hidden="true">&rarr;</span></a></p>
     </article>
   </div>
 </section>
@@ -61,7 +61,7 @@
         </article>
       {{ end }}
     </div>
-    <p class="section-foot"><a class="btn btn-ghost" href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">All articles</a></p>
+    <p class="section-foot"><a class="btn btn-ghost" href="{{ "/posts/" | relURL }}">All articles</a></p>
   </div>
 </section>
 
@@ -69,7 +69,7 @@
   <div class="container cta-inner">
     <p class="eyebrow">We&rsquo;d love to hear from you</p>
     <h2>Ready to explore how pangenome intelligence can transform your research or biotechnology applications?</h2>
-    <p><a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a></p>
+    <p><a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Speak to us</a></p>
   </div>
 </section>
 {{ end }}

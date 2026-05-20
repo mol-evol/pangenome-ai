@@ -8,7 +8,7 @@
     {{ end }}
     <div class="container container-narrow">
       {{ if eq .Section "posts" }}
-        <p class="eyebrow"><a href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">News &amp; articles</a></p>
+        <p class="eyebrow"><a href="{{ "/posts/" | relURL }}">News &amp; articles</a></p>
         <h1 class="single-title">{{ .Title }}</h1>
         <p class="single-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ with .Params.author }} &middot; {{ . }}{{ end }}{{ with .ReadingTime }} &middot; {{ . }} min read{{ end }}</p>
       {{ else }}
@@ -23,7 +23,7 @@
   {{ if eq .Section "posts" }}
     <footer class="single-foot">
       <div class="container container-narrow">
-        <p><a class="link-arrow" href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}"><span aria-hidden="true">&larr;</span> All articles</a></p>
+        <p><a class="link-arrow" href="{{ "/posts/" | relURL }}"><span aria-hidden="true">&larr;</span> All articles</a></p>
       </div>
     </footer>
   {{ end }}

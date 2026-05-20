@@ -75,5 +75,5 @@ Our location places us at the heart of the UK&rsquo;s thriving biotechnology cor
 - **2021** &mdash; Established Random Forest modelling approach for prokaryotic pangenomes.
 
 <div class="contact-actions">
-  <a class="btn btn-primary" href="/contact/">Speak to us</a>
+  <a class="btn btn-primary" href="{{< relref "contact" >}}">Speak to us</a>
 </div>

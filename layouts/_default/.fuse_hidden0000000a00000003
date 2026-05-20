@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="list-hero">
+  <div class="container container-narrow">
+    <p class="eyebrow">{{ .Title }}</p>
+    <h1 class="list-title">{{ with .Description }}{{ . }}{{ else }}Writing on AI, pangenomics, and the future of bioscience.{{ end }}</h1>
+  </div>
+</section>
+<section class="posts-section">
+  <div class="container">
+    <div class="post-grid">
+      {{ range .Pages.ByDate.Reverse }}
+        <article class="post-card">
+          <a href="{{ .RelPermalink }}" class="post-card-link">
+            <div class="post-card-image" style="--card-hue: {{ .Params.hue | default 210 }};" aria-hidden="true">
+              {{ with .Params.image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ end }}
+            </div>
+            <p class="post-card-date">{{ .Date.Format "January 2, 2006" }}</p>
+            <h2 class="post-card-title">{{ .Title }}</h2>
+            <p class="post-card-excerpt">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
+            <span class="post-card-read">Read more <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

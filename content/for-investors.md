@@ -130,5 +130,5 @@ To learn more about investment opportunities in Pangenome AI, please contact our
 *All information contained herein is confidential and proprietary to Pangenome AI Limited.*
 
 <div class="contact-actions">
-  <a class="btn btn-primary" href="/contact/">Speak to us</a>
+  <a class="btn btn-primary" href="{{< relref "contact" >}}">Speak to us</a>
 </div>

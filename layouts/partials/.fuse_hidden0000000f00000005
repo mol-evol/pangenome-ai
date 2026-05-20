@@ -7,11 +7,11 @@
       <div class="footer-col">
         <h2 class="footer-heading">Navigation</h2>
         <ul class="footer-list">
-          <li><a href="{{ "/" | strings.TrimPrefix "/"  | relURL }}">Home</a></li>
-          <li><a href="{{ "/for-investors/" | strings.TrimPrefix "/"  | relURL }}">For Investors</a></li>
-          <li><a href="{{ "/for-research/" | strings.TrimPrefix "/"  | relURL }}">For Research</a></li>
-          <li><a href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">News &amp; Articles</a></li>
-          <li><a href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Contact</a></li>
+          <li><a href="{{ "/" | relURL }}">Home</a></li>
+          <li><a href="{{ "/for-investors/" | relURL }}">For Investors</a></li>
+          <li><a href="{{ "/for-research/" | relURL }}">For Research</a></li>
+          <li><a href="{{ "/posts/" | relURL }}">News &amp; Articles</a></li>
+          <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="footer-meta">
-      <p><a href="{{ "/privacy-policy/" | strings.TrimPrefix "/"  | relURL }}">Privacy Policy</a></p>
+      <p><a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a></p>
       <p>&copy; {{ now.Year }} Pangenome AI. All rights reserved.</p>
     </div>
   </div>

@@ -25,6 +25,6 @@ Explore the latest research and ideas at the intersection of AI and genomics in 
 Join a growing network of scientists and innovators using intelligent genomics to unlock new possibilities in biology.
 
 <div class="contact-actions">
-  <a class="btn btn-primary" href="/contact/">Speak to us</a>
-  <a class="btn btn-ghost" href="/posts/">Read the latest</a>
+  <a class="btn btn-primary" href="{{< relref "contact" >}}">Speak to us</a>
+  <a class="btn btn-ghost" href="{{< relref "posts" >}}">Read the latest</a>
 </div>
