@@ -3,7 +3,7 @@
   <header class="single-header{{ with .Params.video }} has-video{{ end }}">
     {{ with .Params.video }}
       <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="{{ . | relURL }}" type="video/mp4">
+        <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
       </video>
     {{ end }}
     <div class="container container-narrow">
