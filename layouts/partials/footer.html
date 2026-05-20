@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-tagline">
+      <p class="footer-statement">Every antibiotic failure. Every crop lost to climate change. Every ecosystem on the brink &mdash; these are not statistics. They are calls to action.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h2 class="footer-heading">Navigation</h2>
+        <ul class="footer-list">
+          <li><a href="{{ "/" | relURL }}">Home</a></li>
+          <li><a href="{{ "/for-investors/" | relURL }}">For Investors</a></li>
+          <li><a href="{{ "/for-research/" | relURL }}">For Research</a></li>
+          <li><a href="{{ "/posts/" | relURL }}">News &amp; Articles</a></li>
+          <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-list">
+          <li><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
+          <li><a href="{{ .Site.Params.linkedin }}" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <p><a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a></p>
+      <p>&copy; {{ now.Year }} Pangenome AI. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

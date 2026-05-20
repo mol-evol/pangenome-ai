@@ -1,0 +1,75 @@
+{{ define "main" }}
+<section class="hero{{ with .Params.video }} has-video{{ end }}">
+  {{ with .Params.video }}
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="{{ . | relURL }}" type="video/mp4">
+    </video>
+  {{ end }}
+  <div class="container hero-inner">
+    <p class="eyebrow">Revolutionising bioscience</p>
+    <h1 class="hero-title">Pangenome AI is revolutionising bioscience by harnessing the power of artificial intelligence to unlock insights hidden in the global pangenome.</h1>
+    <p class="hero-sub">From decades of trial-and-error to days of precision. From random mutations to AI-guided evolution. From research to real-world application, we&rsquo;re redefining what&rsquo;s possible in biological science.</p>
+    <p class="hero-cta">
+      <a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Speak to us</a>
+      <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">About us</a>
+    </p>
+  </div>
+</section>
+
+<section class="band band-dark">
+  <div class="container">
+    <h2 class="band-title">Our Large Pangenome Models process millions of genomes, extracting evolutionary wisdom that took nature billions of years to encode.</h2>
+    <p class="band-body">This isn&rsquo;t just faster analysis &mdash; it&rsquo;s a fundamental shift in how biology is explored. Our goal is to empower researchers and institutions with tools that think, adapt, and accelerate the journey from hypothesis to breakthrough.</p>
+  </div>
+</section>
+
+<section class="split">
+  <div class="container split-grid">
+    <article class="split-card">
+      <p class="eyebrow">For research</p>
+      <h2>Advancing discovery in intelligent genomics</h2>
+      <p>Explore how AI can power your research and redefine your scientific potential.</p>
+      <p><a class="link-arrow" href="{{ "/for-research/" | relURL }}">Explore research <span aria-hidden="true">&rarr;</span></a></p>
+    </article>
+    <article class="split-card">
+      <p class="eyebrow">For investors</p>
+      <h2>A frontier in AI-driven bioscience</h2>
+      <p>See how we&rsquo;re building the platform set to lead the next wave of biotech innovation.</p>
+      <p><a class="link-arrow" href="{{ "/for-investors/" | relURL }}">Explore investment <span aria-hidden="true">&rarr;</span></a></p>
+    </article>
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">The latest insights</p>
+      <h2>News &amp; articles</h2>
+    </header>
+    <div class="post-grid">
+      {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+        <article class="post-card">
+          <a href="{{ .RelPermalink }}" class="post-card-link">
+            <div class="post-card-image" style="--card-hue: {{ .Params.hue | default 210 }};" aria-hidden="true">
+              {{ with .Params.image }}<img src="{{ . | relURL }}" alt="">{{ end }}
+            </div>
+            <p class="post-card-date">{{ .Date.Format "January 2, 2006" }}</p>
+            <h3 class="post-card-title">{{ .Title }}</h3>
+            <p class="post-card-excerpt">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
+            <span class="post-card-read">Read more <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </article>
+      {{ end }}
+    </div>
+    <p class="section-foot"><a class="btn btn-ghost" href="{{ "/posts/" | relURL }}">All articles</a></p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner">
+    <p class="eyebrow">We&rsquo;d love to hear from you</p>
+    <h2>Ready to explore how pangenome intelligence can transform your research or biotechnology applications?</h2>
+    <p><a class="btn btn-primary" href="{{ "/contact/" | relURL }}">Speak to us</a></p>
+  </div>
+</section>
+{{ end }}

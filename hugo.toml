@@ -1,0 +1,43 @@
+baseURL = "https://pangenome.ai/"
+languageCode = "en-gb"
+title = "Pangenome AI"
+enableRobotsTXT = true
+
+[params]
+  description = "Revolutionising bioscience by harnessing AI to unlock insights hidden in the global pangenome."
+  author = "Pangenome AI"
+  email = "hello@pangenome.ai"
+  linkedin = "https://uk.linkedin.com/in/jomcinerney"
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    name = "For Investors"
+    url = "/for-investors/"
+    weight = 20
+  [[menu.main]]
+    name = "For Research"
+    url = "/for-research/"
+    weight = 30
+  [[menu.main]]
+    name = "News"
+    url = "/posts/"
+    weight = 40
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 50
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
