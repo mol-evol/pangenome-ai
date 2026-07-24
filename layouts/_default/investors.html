@@ -1,0 +1,173 @@
+{{ define "main" }}
+<section class="hero has-video page-hero">
+  {{ with .Params.video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
+  </video>
+  {{ else }}
+  <canvas class="hero-viz" data-viz="helix" aria-hidden="true"></canvas>
+  {{ end }}
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow eyebrow-rule">{{ .Title }}</p>
+      <h1 class="hero-title page-hero-title">{{ .Params.headline }} {{ with .Params.headline_accent }}<span class="accent">{{ . }}</span>{{ end }}</h1>
+      {{ with .Description }}<p class="hero-sub">{{ . }}</p>{{ end }}
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:james@pangenome.ai">Request the deck</a>
+        <a class="btn btn-ghost" href="{{ "/about/" | strings.TrimPrefix "/" | relURL }}">About the science</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-dark">
+  <div class="container lede-grid">
+    <h2 class="lede-statement">{{ .Params.statement }}</h2>
+    <div class="lede-body">{{ .Content }}</div>
+  </div>
+</section>
+
+{{ with .Params.market }}
+<section class="band" style="padding-bottom:0;">
+  <div class="container">
+    <p class="eyebrow">The market</p>
+    <div class="stat-strip">
+      {{ range . }}
+      <div class="stat">
+        <div class="stat-n">{{ .figure | safeHTML }}</div>
+        <div class="stat-l">{{ .label | safeHTML }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="band">
+  <div class="container">
+    <div class="contrast-grid">
+      <div class="contrast-panel">
+        <p class="eyebrow" style="color:var(--dim);">Genome engineering today</p>
+        <ul class="contrast-list">
+          <li><span>70%</span> of complex genetic modifications fail</li>
+          <li><span>3&ndash;5 yrs</span> to develop a new biological product</li>
+          <li><span>$100M+</span> to bring an engineered organism to market</li>
+        </ul>
+        <p class="contrast-note">Trial and error, one reference genome at a time.</p>
+      </div>
+      <div class="contrast-panel is-accent">
+        <p class="eyebrow">With Large Pangenome Models</p>
+        <ul class="contrast-list">
+          <li><span>Predict</span> which gene combinations hold together, before the bench</li>
+          <li><span>Millions</span> of genomes read as one model, not one reference</li>
+          <li><span>Compatibility</span> rules learned from four billion years of natural experiments</li>
+        </ul>
+        <p class="contrast-note">The failures get cheap, because they happen in silico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ with .Params.moat }}
+<section class="band band-dark">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(28px,3.4vw,42px);margin:0;max-width:30ch;">Why the position defends itself</h2>
+    </div>
+    <div class="mission-list">
+      {{ range $i, $m := . }}
+      <div class="mission-item"><span class="idx">{{ printf "%02d" (add $i 1) }}</span><div><h3>{{ $m.title }}</h3><p>{{ $m.body | safeHTML }}</p></div></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="split">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(28px,3.4vw,42px);margin:0;max-width:30ch;">How it makes money</h2>
+      <p class="viz-tag" style="margin:0;">two revenue lines</p>
+    </div>
+    <div class="split-grid">
+      <div class="split-card">
+        <p class="eyebrow">Primary</p>
+        <h3>Proprietary products</h3>
+        <p>High-value engineered organisms developed in-house, with full ownership of the IP. Monetised by licensing, partnership or direct commercialisation.</p>
+      </div>
+      <div class="split-card">
+        <p class="eyebrow">Secondary</p>
+        <h3>Platform &amp; services</h3>
+        <p>Annual platform subscriptions from &pound;50k to &pound;500k, and bespoke design projects from &pound;10k to &pound;100k, at 40&ndash;70% gross margin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ with .Params.proceeds }}
+<section class="band band-dark">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(28px,3.4vw,42px);margin:0;max-width:30ch;">Where a Series A goes</h2>
+    </div>
+    <div class="alloc-bar" aria-hidden="true">
+      {{ range . }}<span style="flex:{{ .share }};"></span>{{ end }}
+    </div>
+    <div class="alloc-legend">
+      {{ range . }}
+      <div class="alloc-item">
+        <div class="alloc-share">{{ .share }}%</div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .body | safeHTML }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.milestones }}
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(28px,3.4vw,42px);margin:0;max-width:30ch;">Next 12&ndash;18 months</h2>
+    </div>
+    <div class="cap-grid cap-grid-4">
+      {{ range $i, $m := . }}
+      <div class="cap"><span class="cap-idx">{{ printf "%02d" (add $i 1) }}</span><h3>{{ $m }}</h3></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="founder">
+  <div class="container">
+    <div class="founder-panel">
+      <img src="{{ "/images/wp-uploads/2025/04/10-James-Photo-BW.jpeg" | strings.TrimPrefix "/" | relURL }}" alt="Professor James McInerney">
+      <div class="founder-body">
+        <p class="eyebrow">Who you would be backing</p>
+        <blockquote>&ldquo;The history of life on Earth contains the blueprint for solving our most pressing global challenges.&rdquo;</blockquote>
+        <p class="bio">Professor James McInerney &mdash; past President of the Society for Molecular Biology and Evolution, Fellow of the American and European Academies of Microbiology, and 25 years in evolutionary genomics.</p>
+        <div class="founder-stats">
+          <div><div class="n">130+</div><div class="l">papers, incl. Nature, Science &amp; PNAS</div></div>
+          <div><div class="n">10,000+</div><div class="l">citations</div></div>
+          <div><div class="n">&euro;40M</div><div class="l">research funding raised</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;display:flex;">Series A</p>
+    <h2>We are raising to take Large Pangenome Models to commercial launch.</h2>
+    <div class="hero-cta" style="justify-content:center;">
+      <a class="btn btn-primary" href="mailto:james@pangenome.ai">Email James directly</a>
+      <a class="btn btn-ghost" href="{{ "/contact/" | strings.TrimPrefix "/" | relURL }}">Other ways to reach us</a>
+    </div>
+    <p class="cta-fineprint">All information provided is confidential and proprietary to Pangenome AI Limited.</p>
+  </div>
+</section>
+{{ end }}
