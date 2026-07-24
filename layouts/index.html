@@ -1,6 +1,12 @@
 {{ define "main" }}
-<section class="hero">
+<section class="hero{{ with .Params.video }} has-video{{ end }}">
+  {{ with .Params.video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
+  </video>
+  {{ else }}
   <canvas class="hero-viz" data-viz="helix" aria-hidden="true"></canvas>
+  {{ end }}
   <div class="container">
     <div class="hero-inner">
       <p class="eyebrow eyebrow-rule">Revolutionising bioscience</p>
