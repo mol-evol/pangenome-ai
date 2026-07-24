@@ -1,75 +1,124 @@
 {{ define "main" }}
-<section class="hero{{ with .Params.video }} has-video{{ end }}">
-  {{ with .Params.video }}
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-      <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
-    </video>
-  {{ end }}
-  <div class="container hero-inner">
-    <p class="eyebrow">Revolutionising bioscience</p>
-    <h1 class="hero-title">Pangenome AI is revolutionising bioscience by harnessing the power of artificial intelligence to unlock insights hidden in the global pangenome.</h1>
-    <p class="hero-sub">From decades of trial-and-error to days of precision. From random mutations to AI-guided evolution. From research to real-world application, we&rsquo;re redefining what&rsquo;s possible in biological science.</p>
-    <p class="hero-cta">
-      <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a>
-      <a class="btn btn-ghost" href="{{ "/about/" | strings.TrimPrefix "/"  | relURL }}">About us</a>
-    </p>
+<section class="hero">
+  <canvas class="hero-viz" data-viz="helix" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow eyebrow-rule">Revolutionising bioscience</p>
+      <h1 class="hero-title">Four billion years of nature&rsquo;s R&amp;D, <span class="accent">finally legible.</span></h1>
+      <p class="hero-sub">We harness AI to unlock the insights hidden in the global pangenome &mdash; turning evolution&rsquo;s oldest experiments into tomorrow&rsquo;s breakthroughs.</p>
+      <p class="hero-cta">
+        <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a>
+        <a class="btn btn-ghost" href="{{ "/about/" | strings.TrimPrefix "/"  | relURL }}">About us</a>
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="band band-dark">
+  <div class="container mission-grid">
+    <div>
+      <p class="eyebrow">Why it matters</p>
+      <h2 class="mission-title">These are not statistics. <span class="accent">They are calls to action.</span></h2>
+    </div>
+    <div class="mission-list">
+      <div class="mission-item"><span class="idx">01</span><div><h3>Every antibiotic failure</h3><p>Resistance is outpacing our pipeline of new drugs.</p></div></div>
+      <div class="mission-item"><span class="idx">02</span><div><h3>Every crop lost to climate change</h3><p>Agriculture must adapt faster than nature alone allows.</p></div></div>
+      <div class="mission-item"><span class="idx">03</span><div><h3>Every ecosystem on the brink</h3><p>Restoration needs biology that works in the wild.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="viz-section">
   <div class="container">
-    <h2 class="band-title">Our Large Pangenome Models process millions of genomes, extracting evolutionary wisdom that took nature billions of years to encode.</h2>
-    <p class="band-body">This isn&rsquo;t just faster analysis &mdash; it&rsquo;s a fundamental shift in how biology is explored. Our goal is to empower researchers and institutions with tools that think, adapt, and accelerate the journey from hypothesis to breakthrough.</p>
+    <div class="viz-head">
+      <div>
+        <p class="eyebrow">How LPMs work</p>
+        <h2>Reading across the whole pangenome, locus by locus.</h2>
+      </div>
+      <span class="viz-tag">&#9679; scanning &middot; 6 genomes &middot; 240 loci</span>
+    </div>
+    <div class="viz-frame">
+      <div class="viz-frame-bar"><span>pangenome.align // transformer attention pass</span><span>compatibility &#9656; predicted</span></div>
+      <canvas data-viz="scan" aria-hidden="true"></canvas>
+    </div>
+    <div class="viz-steps">
+      <div><div class="k">01 / Read</div><p>Ingest the full genetic repertoire of a species &mdash; every gene, not one reference genome.</p></div>
+      <div><div class="k">02 / Relate</div><p>Attention surfaces which loci depend on, or exclude, one another across millions of genomes.</p></div>
+      <div><div class="k">03 / Predict</div><p>Forecast how a genetic modification behaves &mdash; before it ever reaches the wet lab.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <img src="{{ "/images/wp-uploads/2025/05/AdobeStock_1236642960-scaled.jpeg" | strings.TrimPrefix "/" | relURL }}" alt="">
+  <div class="container feature-inner">
+    <div class="box">
+      <p class="eyebrow">Large Pangenome Models</p>
+      <h2>The complete genetic repertoire of a species, in one model.</h2>
+      <p>Transformer attention across millions of genomes reveals which combinations nature allows &mdash; and which it forbids.</p>
+    </div>
   </div>
 </section>
 
 <section class="split">
   <div class="container split-grid">
-    <article class="split-card">
+    <a class="split-card" href="{{ "/for-research/" | strings.TrimPrefix "/"  | relURL }}">
       <p class="eyebrow">For research</p>
-      <h2>Advancing discovery in intelligent genomics</h2>
-      <p>Explore how AI can power your research and redefine your scientific potential.</p>
-      <p><a class="link-arrow" href="{{ "/for-research/" | strings.TrimPrefix "/"  | relURL }}">Explore research <span aria-hidden="true">&rarr;</span></a></p>
-    </article>
-    <article class="split-card">
+      <h3>Advancing discovery in intelligent genomics</h3>
+      <p>Move beyond single reference genomes. Predict compatibility before committing to the bench.</p>
+      <span class="link-arrow">Explore research <span aria-hidden="true">&rarr;</span></span>
+    </a>
+    <a class="split-card" href="{{ "/for-investors/" | strings.TrimPrefix "/"  | relURL }}">
       <p class="eyebrow">For investors</p>
-      <h2>A frontier in AI-driven bioscience</h2>
-      <p>See how we&rsquo;re building the platform set to lead the next wave of biotech innovation.</p>
-      <p><a class="link-arrow" href="{{ "/for-investors/" | strings.TrimPrefix "/"  | relURL }}">Explore investment <span aria-hidden="true">&rarr;</span></a></p>
-    </article>
+      <h3>A frontier in AI-driven bioscience</h3>
+      <p>Backing the platform set to lead the next wave of biotech innovation.</p>
+      <span class="link-arrow">Explore investment <span aria-hidden="true">&rarr;</span></span>
+    </a>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="container">
+    <div class="founder-panel">
+      <img src="{{ "/images/wp-uploads/2025/04/10-James-Photo-BW.jpeg" | strings.TrimPrefix "/" | relURL }}" alt="Professor James McInerney">
+      <div class="founder-body">
+        <p class="eyebrow">Founder &amp; Chief Scientific Officer</p>
+        <blockquote>&ldquo;The history of life on Earth contains the blueprint for solving our most pressing global challenges.&rdquo;</blockquote>
+        <p class="bio">Professor James McInerney &mdash; past President of the Society for Molecular Biology and Evolution, and 25 years pioneering evolutionary genomics.</p>
+        <div class="founder-stats">
+          <div><div class="n">130+</div><div class="l">papers, incl. Nature, Science &amp; PNAS</div></div>
+          <div><div class="n">25 yrs</div><div class="l">in evolutionary genomics</div></div>
+          <div><div class="n">&euro;40M</div><div class="l">research funding raised</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="posts-section">
   <div class="container">
-    <header class="section-head">
-      <p class="eyebrow">The latest insights</p>
-      <h2>News &amp; articles</h2>
-    </header>
+    <div class="section-head">
+      <p class="eyebrow" style="margin:0;">The latest insights</p>
+      <a class="link-arrow" href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">All articles <span aria-hidden="true">&rarr;</span></a>
+    </div>
     <div class="post-grid">
-      {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
-        <article class="post-card">
-          <a href="{{ .RelPermalink }}" class="post-card-link">
-            <div class="post-card-image" style="--card-hue: {{ .Params.hue | default 210 }};" aria-hidden="true">
-              {{ with .Params.image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ end }}
-            </div>
-            <p class="post-card-date">{{ .Date.Format "January 2, 2006" }}</p>
-            <h3 class="post-card-title">{{ .Title }}</h3>
-            <p class="post-card-excerpt">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
-            <span class="post-card-read">Read more <span aria-hidden="true">&rarr;</span></span>
-          </a>
-        </article>
+      {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+        <a href="{{ .RelPermalink }}" class="post-card-link">
+          <div class="post-card-image">
+            {{ with .Params.image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ end }}
+          </div>
+          <p class="post-card-date">{{ .Date.Format "January 2, 2006" }}</p>
+          <h3 class="post-card-title">{{ .Title }}</h3>
+        </a>
       {{ end }}
     </div>
-    <p class="section-foot"><a class="btn btn-ghost" href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">All articles</a></p>
   </div>
 </section>
 
 <section class="cta">
-  <div class="container cta-inner">
-    <p class="eyebrow">We&rsquo;d love to hear from you</p>
-    <h2>Ready to explore how pangenome intelligence can transform your research or biotechnology applications?</h2>
-    <p><a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a></p>
+  <div class="container">
+    <h2>Ready to explore how pangenome intelligence can transform your work?</h2>
+    <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a>
   </div>
 </section>
 {{ end }}

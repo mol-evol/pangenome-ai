@@ -1,31 +1,39 @@
 {{ define "main" }}
 <article class="single">
-  <header class="single-header{{ with .Params.video }} has-video{{ end }}">
-    {{ with .Params.video }}
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
-      </video>
-    {{ end }}
+  <header class="single-header">
     <div class="container container-narrow">
       {{ if eq .Section "posts" }}
-        <p class="eyebrow"><a href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">News &amp; articles</a></p>
+        <p class="eyebrow"><a href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}">&larr; News &amp; articles</a></p>
         <h1 class="single-title">{{ .Title }}</h1>
         <p class="single-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ with .Params.author }} &middot; {{ . }}{{ end }}{{ with .ReadingTime }} &middot; {{ . }} min read{{ end }}</p>
-      {{ else }}
-        <h1 class="single-title">{{ .Title }}</h1>
         {{ with .Description }}<p class="single-lede">{{ . }}</p>{{ end }}
+      {{ else }}
+        <p class="eyebrow">{{ .Title }}</p>
+        {{ with .Description }}<h1 class="single-title">{{ . }}</h1>{{ else }}<h1 class="single-title">{{ .Title }}</h1>{{ end }}
       {{ end }}
     </div>
   </header>
+
+  {{ if and (eq .Section "posts") .Params.image }}
+    <div class="single-hero-img">
+      <img src="{{ .Params.image | strings.TrimPrefix "/" | relURL }}" alt="">
+    </div>
+  {{ end }}
+
   <div class="container container-narrow single-body">
     {{ .Content }}
   </div>
+
   {{ if eq .Section "posts" }}
-    <footer class="single-foot">
-      <div class="container container-narrow">
-        <p><a class="link-arrow" href="{{ "/posts/" | strings.TrimPrefix "/"  | relURL }}"><span aria-hidden="true">&larr;</span> All articles</a></p>
+    {{ $next := or .NextInSection .PrevInSection }}
+    {{ with $next }}
+      <div class="container container-narrow single-foot">
+        <a class="split-card" href="{{ .RelPermalink }}" style="display:block;">
+          <p class="eyebrow" style="margin:0 0 12px;">Read next</p>
+          <h3 style="margin:0;">{{ .Title }} <span class="link-arrow"><span aria-hidden="true">&rarr;</span></span></h3>
+        </a>
       </div>
-    </footer>
+    {{ end }}
   {{ end }}
 </article>
 {{ end }}

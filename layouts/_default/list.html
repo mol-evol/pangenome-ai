@@ -1,27 +1,46 @@
 {{ define "main" }}
 <section class="list-hero">
-  <div class="container container-narrow">
+  <div class="container">
     <p class="eyebrow">{{ .Title }}</p>
-    <h1 class="list-title">{{ with .Description }}{{ . }}{{ else }}Writing on AI, pangenomics, and the future of bioscience.{{ end }}</h1>
+    <h1 class="list-title">Writing on AI, pangenomics &amp; the future of bioscience.</h1>
+    <p class="list-sub">{{ with .Description }}{{ . }}{{ else }}Ideas from the frontier where four billion years of evolution meets modern machine learning.{{ end }}</p>
   </div>
 </section>
-<section class="posts-section">
+
+{{ $pages := .Pages.ByDate.Reverse }}
+{{ $featured := index $pages 0 }}
+
+<section class="posts-section" style="padding-top:clamp(48px,6vw,72px);">
   <div class="container">
-    <div class="post-grid">
-      {{ range .Pages.ByDate.Reverse }}
-        <article class="post-card">
-          <a href="{{ .RelPermalink }}" class="post-card-link">
-            <div class="post-card-image" style="--card-hue: {{ .Params.hue | default 210 }};" aria-hidden="true">
-              {{ with .Params.image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ end }}
-            </div>
-            <p class="post-card-date">{{ .Date.Format "January 2, 2006" }}</p>
-            <h2 class="post-card-title">{{ .Title }}</h2>
-            <p class="post-card-excerpt">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
-            <span class="post-card-read">Read more <span aria-hidden="true">&rarr;</span></span>
-          </a>
-        </article>
+    {{ with $featured }}
+      <a class="featured post-card-link" href="{{ .RelPermalink }}">
+        <div>{{ with .Params.image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ else }}<span class="post-card-image" style="display:block;"></span>{{ end }}</div>
+        <div>
+          <p class="meta">{{ .Date.Format "January 2, 2006" }} &middot; FEATURED</p>
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Description | default (.Summary | plainify | truncate 200) }}</p>
+          <span class="link-arrow">Read article <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+    {{ end }}
+
+    <div class="post-rows">
+      {{ range after 1 $pages }}
+        <a class="post-row" href="{{ .RelPermalink }}">
+          <span class="post-row-date">{{ .Date.Format "Jan 2006" }}</span>
+          {{ with .Params.image }}<img class="post-row-thumb" src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ else }}<span class="post-row-thumb" style="background:linear-gradient(135deg,#2A2418,#463C22);"></span>{{ end }}
+          <h3 class="post-row-title">{{ .Title }}</h3>
+          <span class="post-row-arrow" aria-hidden="true">&rarr;</span>
+        </a>
       {{ end }}
     </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Want to explore a collaboration?</h2>
+    <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/"  | relURL }}">Speak to us</a>
   </div>
 </section>
 {{ end }}
