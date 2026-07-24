@@ -3,7 +3,7 @@ title: "For research"
 layout: "research"
 description: "Pangenome AI applies transformer architectures to pangenomic data, so researchers can ask questions of thousands of genomes at once instead of one reference at a time."
 video: /videos/ResearchFinal.mp4
-headline: "Ask larger questions of"
+headline: "Ask bigger questions of"
 headline_accent: "thousands of genomes."
 statement: "A single reference genome describes one individual. Biology happens across the whole population."
 capabilities:
