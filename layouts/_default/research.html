@@ -1,0 +1,93 @@
+{{ define "main" }}
+<section class="hero has-video page-hero">
+  {{ with .Params.video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
+  </video>
+  {{ else }}
+  <canvas class="hero-viz" data-viz="scan" aria-hidden="true"></canvas>
+  {{ end }}
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow eyebrow-rule">{{ .Title }}</p>
+      <h1 class="hero-title page-hero-title">{{ .Params.headline }} {{ with .Params.headline_accent }}<span class="accent">{{ . }}</span>{{ end }}</h1>
+      {{ with .Description }}<p class="hero-sub">{{ . }}</p>{{ end }}
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/" | relURL }}">Start a conversation</a>
+        <a class="btn btn-ghost" href="{{ "/posts/" | strings.TrimPrefix "/" | relURL }}">Read the research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-dark">
+  <div class="container lede-grid">
+    <h2 class="lede-statement">{{ .Params.statement }}</h2>
+    <div class="lede-body">{{ .Content }}</div>
+  </div>
+</section>
+
+{{ with .Params.capabilities }}
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(30px,3.6vw,44px);margin:0;max-width:30ch;">How we support researchers</h2>
+      <p class="viz-tag" style="margin:0;">{{ len . }} ways in</p>
+    </div>
+    <div class="cap-grid">
+      {{ range $i, $c := . }}
+      <div class="cap">
+        <span class="cap-idx">{{ printf "%02d" (add $i 1) }}</span>
+        <h3>{{ $c.title }}</h3>
+        <p>{{ $c.body | safeHTML }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="viz-section">
+  <div class="container">
+    <div class="viz-head">
+      <h2>What a pangenome model sees</h2>
+      <p class="viz-tag">live · alignment across strains</p>
+    </div>
+    <div class="viz-frame">
+      <div class="viz-frame-bar"><span>pangenome · alignment</span><span>scanning</span></div>
+      <canvas data-viz="scan" aria-hidden="true"></canvas>
+    </div>
+    <div class="viz-steps">
+      <div><p class="k">01 · Variation</p><p>Thousands of genomes per species, aligned so that presence, absence and rearrangement are all first-class signal.</p></div>
+      <div><p class="k">02 · Constraint</p><p>The model learns which combinations of genes co-occur, and which the historical record has never tolerated.</p></div>
+      <div><p class="k">03 · Prediction</p><p>Those constraints become testable predictions &mdash; compatibility, resistance, and the limits of engineering.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="split">
+  <div class="container split-grid">
+    <div class="split-card">
+      <h3>Bespoke models</h3>
+      <p>Train on your collection, your species, your question. We build models around existing programmes rather than asking you to restructure around ours.</p>
+      <span class="link-arrow">Discuss a collaboration <span aria-hidden="true">&rarr;</span></span>
+    </div>
+    <div class="split-card">
+      <h3>Data partnerships</h3>
+      <p>If you hold genomic collections that deserve more than a reference-based analysis, we would like to hear about them.</p>
+      <span class="link-arrow">Talk about data <span aria-hidden="true">&rarr;</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;display:flex;">Get involved</p>
+    <h2>Join the scientists using intelligent genomics to ask larger questions.</h2>
+    <div class="hero-cta" style="justify-content:center;">
+      <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/" | relURL }}">Speak to us</a>
+      <a class="btn btn-ghost" href="{{ "/posts/" | strings.TrimPrefix "/" | relURL }}">News &amp; articles</a>
+    </div>
+  </div>
+</section>
+{{ end }}

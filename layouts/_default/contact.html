@@ -1,0 +1,75 @@
+{{ define "main" }}
+<section class="hero has-video page-hero">
+  {{ with .Params.video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
+  </video>
+  {{ else }}
+  <canvas class="hero-viz" data-viz="helix" aria-hidden="true"></canvas>
+  {{ end }}
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow eyebrow-rule">Contact</p>
+      <h1 class="hero-title page-hero-title">{{ .Params.headline | default .Title }} {{ with .Params.headline_accent }}<span class="accent">{{ . }}</span>{{ end }}</h1>
+      {{ with .Description }}<p class="hero-sub">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="band band-dark">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Direct lines</p>
+      <div class="channel-list">
+        {{ range .Params.channels }}
+        <a class="channel" href="{{ .href }}"{{ if .external }} rel="noopener"{{ end }}>
+          <span class="channel-label">{{ .label }}</span>
+          <span class="channel-value">{{ .value }}</span>
+          <span class="channel-note">{{ .note }}</span>
+          <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        {{ end }}
+      </div>
+      <div class="contact-body">{{ .Content }}</div>
+    </div>
+
+    <aside class="contact-aside">
+      {{ with .Params.portrait }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="James McInerney">{{ end }}
+      <div class="contact-aside-body">
+        <p class="eyebrow" style="margin-bottom:14px;">Who replies</p>
+        <h3>James McInerney</h3>
+        <p class="role">Founder &amp; CEO &middot; Professor of Evolutionary Biology</p>
+        <p class="note">Enquiries come to James directly. Tell us what you are working on and what you are trying to find out &mdash; that is enough to start.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(28px,3.2vw,40px);margin:0;max-width:30ch;">What happens next</h2>
+    </div>
+    <div class="mission-list">
+      <div class="mission-item"><span class="idx">01</span><div><h3>You write</h3><p>A paragraph is plenty. The species, the dataset, the question &mdash; whichever of those you have.</p></div></div>
+      <div class="mission-item"><span class="idx">02</span><div><h3>We reply personally</h3><p>No forms, no funnel. You hear back from the person who would do the work.</p></div></div>
+      <div class="mission-item"><span class="idx">03</span><div><h3>We scope it together</h3><p>A short call to work out whether a pangenome model is genuinely the right instrument for your question.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="split" style="padding-top:0;">
+  <div class="container split-grid">
+    <a class="split-card" href="{{ "/for-research/" | strings.TrimPrefix "/" | relURL }}">
+      <h3>For research</h3>
+      <p>How we work with laboratories, consortia and collections.</p>
+      <span class="link-arrow">For research <span aria-hidden="true">&rarr;</span></span>
+    </a>
+    <a class="split-card" href="{{ "/for-investors/" | strings.TrimPrefix "/" | relURL }}">
+      <h3>For investors</h3>
+      <p>The market, the moat, and where the round stands.</p>
+      <span class="link-arrow">For investors <span aria-hidden="true">&rarr;</span></span>
+    </a>
+  </div>
+</section>
+{{ end }}
