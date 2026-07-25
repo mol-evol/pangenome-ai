@@ -1,0 +1,134 @@
+{{ define "main" }}
+<section class="hero has-video page-hero">
+  {{ with .Params.video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="{{ . | strings.TrimPrefix "/" | relURL }}" type="video/mp4">
+  </video>
+  {{ else }}
+  <canvas class="hero-viz" data-viz="helix" aria-hidden="true"></canvas>
+  {{ end }}
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow eyebrow-rule">{{ .Title }}</p>
+      <h1 class="hero-title page-hero-title">{{ .Params.headline }} {{ with .Params.headline_accent }}<span class="accent">{{ . }}</span>{{ end }}</h1>
+      {{ with .Description }}<p class="hero-sub">{{ . }}</p>{{ end }}
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/" | relURL }}">Speak to us</a>
+        <a class="btn btn-ghost" href="{{ "/for-research/" | strings.TrimPrefix "/" | relURL }}">For research</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-dark">
+  <div class="container lede-grid">
+    <h2 class="lede-statement">{{ .Params.statement | safeHTML }}</h2>
+    <div class="lede-body">{{ .Content }}</div>
+  </div>
+</section>
+
+{{ with .Params.founder }}
+<section class="band" style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(30px,3.6vw,44px);margin:0;max-width:30ch;">Who is behind this</h2>
+      <p class="viz-tag" style="margin:0;">founder &middot; scientific lead</p>
+    </div>
+  </div>
+</section>
+<section class="founder" style="padding-top:clamp(28px,3vw,36px);">
+  <div class="container">
+    <div class="founder-panel">
+      {{ with .portrait }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.founder.name }}">{{ end }}
+      <div class="founder-body">
+        <blockquote>{{ .quote | safeHTML }}</blockquote>
+        <p class="bio"><strong style="color:var(--ink);">{{ .name }}</strong> &mdash; {{ .role }}. {{ .bio | safeHTML }}</p>
+        <div class="founder-stats">
+          {{ range .stats }}<div><p class="n">{{ .n }}</p><p class="l">{{ .l }}</p></div>{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.credentials }}
+<section class="band" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <h2 style="font-size:clamp(26px,2.8vw,36px);margin:0;max-width:30ch;">Appointments &amp; honours</h2>
+    </div>
+    <div class="cap-grid">
+      {{ range $i, $c := . }}
+      <div class="cap">
+        <span class="cap-idx">{{ printf "%02d" (add $i 1) }}</span>
+        <h3>{{ $c.title | safeHTML }}</h3>
+        <p>{{ $c.body | safeHTML }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.mission }}
+<section class="band band-dark">
+  <div class="container mission-grid">
+    <div>
+      <p class="eyebrow eyebrow-rule">Our mission</p>
+      <h2 class="mission-title">{{ $.Params.mission_title | safeHTML }}</h2>
+    </div>
+    <div class="mission-list">
+      {{ range $i, $m := . }}
+      <div class="mission-item">
+        <span class="idx">{{ printf "%02d" (add $i 1) }}</span>
+        <div><h3>{{ $m.title }}</h3><p>{{ $m.body | safeHTML }}</p></div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="viz-section">
+  <div class="container">
+    <div class="viz-head">
+      <h2>How a Large Pangenome Model works</h2>
+      <p class="viz-tag">live &middot; alignment across strains</p>
+    </div>
+    <div class="viz-frame">
+      <div class="viz-frame-bar"><span>pangenome &middot; alignment</span><span>scanning</span></div>
+      <canvas data-viz="scan" aria-hidden="true"></canvas>
+    </div>
+    <div class="viz-steps">
+      {{ range .Params.approach }}
+      <div><p class="k">{{ .k }}</p><p>{{ .body | safeHTML }}</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ with .Params.place }}
+<section class="feature">
+  {{ with .image }}<img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">{{ end }}
+  <div class="container feature-inner">
+    <div class="box">
+      <p class="eyebrow">{{ .eyebrow }}</p>
+      <h2>{{ .title | safeHTML }}</h2>
+      <p>{{ .body | safeHTML }}</p>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<section class="cta">
+  <div class="container">
+    <p class="eyebrow" style="justify-content:center;display:flex;">Work with us</p>
+    <h2>Tell us what you are trying to find out.</h2>
+    <div class="hero-cta" style="justify-content:center;">
+      <a class="btn btn-primary" href="{{ "/contact/" | strings.TrimPrefix "/" | relURL }}">Speak to us</a>
+      <a class="btn btn-ghost" href="{{ "/posts/" | strings.TrimPrefix "/" | relURL }}">News &amp; articles</a>
+    </div>
+  </div>
+</section>
+{{ end }}

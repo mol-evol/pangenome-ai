@@ -1,79 +1,61 @@
 ---
 title: "About us"
-description: "Pangenome AI emerged from a profound understanding: the history of life on Earth contains the blueprint for solving our most pressing global challenges."
+layout: "about"
+description: "Pangenome AI reads four billion years of natural experiments and turns them into predictions researchers can test."
 video: /videos/AboutFinal.mp4
+headline: "Nature already ran"
+headline_accent: "the experiments."
+statement: "Every species carries a record of what worked and what never survived. We built models that can read it."
+founder:
+  name: "Professor James O. McInerney"
+  role: "Founder &amp; Chief Scientific Officer"
+  portrait: /images/wp-uploads/2025/04/10-James-Photo-BW.jpeg
+  quote: "&ldquo;The rules of genetic compatibility are already written down. They are just written in a language nobody had read at scale.&rdquo;"
+  bio: "Twenty-five years in evolutionary genomics and computational biology, with a PhD and DSc and work published across Nature, Science and PNAS. Enquiries reach him directly."
+  stats:
+    - n: "130+"
+      l: "Peer-reviewed papers"
+    - n: "&euro;40M+"
+      l: "Research funding awarded"
+    - n: "25 yrs"
+      l: "In evolutionary genomics"
+credentials:
+  - title: "Past President, Society for Molecular Biology and Evolution"
+    body: "Led the field&rsquo;s principal international society, with more than 5,000 members worldwide."
+  - title: "Chair in Evolutionary Biology, University of Liverpool"
+    body: "With prior senior appointments at the Universities of Nottingham and Manchester."
+  - title: "Head of the School of Life Sciences, University of Nottingham"
+    body: "Responsible for one of the UK&rsquo;s largest life sciences schools and a &pound;200M budget."
+  - title: "Fellow, American Academy of Microbiology"
+    body: "Elected to an academy of roughly 2,000 microbiologists worldwide."
+  - title: "Fellow, European Academy of Microbiology"
+    body: "Recognising sustained contribution to microbiological research in Europe."
+  - title: "Visiting Professor, Harvard School of Public Health"
+    body: "Ongoing collaboration with computational biology groups in the United States."
+mission_title: "Make the rules of genetic compatibility <span class=\"accent\">predictable</span>."
+mission:
+  - title: "Decode nature&rsquo;s blueprints"
+    body: "Recover the genetic rules encoded in four billion years of evolutionary history."
+  - title: "Cut the cost of getting it wrong"
+    body: "Replace experimental trial-and-error with predictions that can be tested cheaply and early."
+  - title: "Address global challenges"
+    body: "Antimicrobial resistance, sustainable energy, and the next generation of biotechnology products."
+  - title: "Democratise access"
+    body: "Put pangenome-scale analysis within reach of researchers who do not run their own compute."
+approach:
+  - k: "01 &middot; Variation"
+    body: "Thousands of genomes per species, aligned so that presence, absence and rearrangement are all first-class signal &mdash; not noise around a single reference."
+  - k: "02 &middot; Constraint"
+    body: "Transformer architectures learn which combinations of genes co-occur, and which the historical record has never tolerated."
+  - k: "03 &middot; Prediction"
+    body: "Those constraints become testable predictions: compatibility, emerging resistance, and the real limits of engineering."
+place:
+  eyebrow: "Where we are"
+  image: /images/wp-uploads/2025/08/shubham-dhage-QMBaKPWeW8c.jpg
+  title: "Built in England&rsquo;s Northern Powerhouse."
+  body: "We sit inside the UK biotechnology corridor, with world-class universities and research facilities on the doorstep. Our work is supported by the BBSRC and the Leverhulme Trust, and involves collaborations with Harvard and institutions across Europe and Brazil."
 ---
 
-Founded by Professor James McInerney, Pangenome AI was born from decades of pioneering research in evolutionary biology and the recognition that four billion years of natural experiments in genetic recombination and selection hold the keys to addressing antibiotic resistance, renewable energy needs, and synthetic biology innovation.
+Pangenome AI was founded by Professor James McInerney out of decades of research in evolutionary biology &mdash; and one conviction: that four billion years of recombination and selection have already tested more genetic combinations than any laboratory ever will.
 
-Our Large Pangenome Models process millions of genomes, extracting evolutionary wisdom that took nature billions of years to encode. Our breakthrough came through sophisticated bioinformatic tools that can decode pangenomes &mdash; the complete collection of genes found across a species. By applying transformer architectures and attention mechanisms to these vast genomic datasets, we have unlocked the ability to predict which genetic combinations work harmoniously together and which create incompatibilities.
-
-## Professor James O. McInerney PhD DSc
-
-{{< figure src="/images/wp-uploads/2025/04/10-James-Photo-BW.jpeg" alt="Professor James O. McInerney" class="founder-portrait" >}}
-
-*Founder &amp; Chief Scientific Officer*
-
-Professor McInerney has published over 130 peer-reviewed papers in top-tier journals including Nature, Science, and PNAS, with his work cited extensively across the fields of genomics, evolution, and bioinformatics. His research has been supported by over &euro;40 million in funding from major agencies including the Wellcome Trust, BBSRC, and Science Foundation Ireland.
-
-He brings over 25 years of pioneering research in evolutionary genomics and computational biology. His career includes:
-
-- **Past President of the Society for Molecular Biology and Evolution (2022)** &mdash; leading the world&rsquo;s premier evolutionary biology society with 5,000+ members globally.
-- **Chair in Evolutionary Biology** at the University of Liverpool, with prior senior appointments at the Universities of Nottingham and Manchester.
-- **Head of the School of Life Sciences, University of Nottingham (2018&ndash;2022)** &mdash; overseeing a &pound;200M budget at one of the UK&rsquo;s largest life sciences schools.
-- **Fellow of the American Academy of Microbiology** &mdash; elected to this prestigious academy of 2,000 microbiologists worldwide.
-- **Fellow of the European Academy of Microbiology** &mdash; recognising sustained contributions to microbiological research in Europe.
-- **Visiting Professor, Harvard School of Public Health** &mdash; collaborating with leading researchers in computational biology.
-
-## Our mission
-
-We believe that understanding the fundamental rules governing genetic compatibility will revolutionise how we approach biotechnology challenges. Our mission is to:
-
-- **Decode nature&rsquo;s blueprints.** Unlock the genetic rules written in four billion years of evolutionary history.
-- **Accelerate innovation.** Reduce the time and cost of genetic engineering through predictive intelligence.
-- **Address global challenges.** Apply our insights to combat antibiotic resistance, develop sustainable energy solutions, and create next-generation biotechnology products.
-- **Democratise access.** Make sophisticated genomic analysis tools accessible to researchers and innovators worldwide.
-
-## Our technology approach
-
-### Large Pangenome Models (LPMs)
-
-Our core innovation lies in developing Large Pangenome Models that harness the power of transformer architectures &mdash; the same technology behind breakthrough AI systems &mdash; to understand genomic relationships. These models analyse the complete genetic repertoire across species to identify:
-
-- **Genetic compatibility rules** &mdash; which gene combinations work harmoniously together.
-- **Evolutionary constraints** &mdash; natural limitations that govern successful genetic partnerships.
-- **Predictive patterns** &mdash; anticipating how genetic modifications will behave in different contexts.
-
-### Transformer-based analysis
-
-By applying attention mechanisms from advanced AI to biological data, our models can:
-
-- Process vast genomic datasets with unprecedented efficiency.
-- Identify hidden relationships between genetic elements.
-- Predict outcomes of genetic modifications before experimental validation.
-- Generate testable hypotheses for practical applications.
-
-### Precision genomic engineering
-
-Our approach enables precision engineering of microbial communities by:
-
-- Identifying optimal gene combinations for specific functions.
-- Anticipating emerging antimicrobial resistance patterns before they appear clinically.
-- Accelerating synthetic biology development with compatibility roadmaps.
-- Reducing experimental trial-and-error through predictive modelling.
-
-## Proudly based in England&rsquo;s Northern Powerhouse
-
-Our location places us at the heart of the UK&rsquo;s thriving biotechnology corridor, with access to world-class universities, cutting-edge research facilities, and a vibrant ecosystem of life sciences companies and investors. We maintain active collaborations with leading academic and international institutions, reflecting our commitment to contributing to the UK&rsquo;s position as a global leader in biotechnology innovation. Our work is supported by funding bodies including the BBSRC and the Leverhulme Trust, and has historically involved partnerships with Harvard University and institutions across Europe and Brazil.
-
-## Milestones
-
-- **2024** &mdash; Founded Pangenome AI with breakthrough panGPT technology.
-- **2024** &mdash; Secured BBSRC &ldquo;Pioneers&rdquo; grant for experimental validation (&pound;199,243).
-- **2024** &mdash; Published PNAS paper demonstrating predictable patterns in pangenome evolution.
-- **2023** &mdash; Developed panGPT &mdash; the first GPT-style model trained on pangenome data.
-- **2021** &mdash; Established Random Forest modelling approach for prokaryotic pangenomes.
-
-<div class="contact-actions">
-  <a class="btn btn-primary" href="{{< relref "contact" >}}">Speak to us</a>
-</div>
+Our Large Pangenome Models process millions of genomes to recover that evidence. Applying transformer architectures and attention mechanisms to pangenomes &mdash; the complete gene repertoire of a species &mdash; lets us predict which genetic combinations work together, and which quietly fail.
